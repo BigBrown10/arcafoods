@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ARCA FOOD</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="welcome">Welcome to Arca food</string>
+    <string name="thank_you">Thank you</string>
+    <string name="change">Change Login Info(Optional)</string>
+    <string name="well">Tunde can get anything for you, what do you want?</string>
+    <string name="go_to_order">Go to Order</string>
+    <string name="hi">Hi,</string>
+</resources>
+
