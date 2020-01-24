@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmRiceActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"/>
+
+
+        <Spinner
+            android:id="@+id/SpinnerFeedbackType"
+            android:spinnerMode="dialog"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:prompt="@string/select_meal">
+
+        </Spinner>
+
+        <Spinner
+            android:id="@+id/FeedType"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:hapticFeedbackEnabled="true"
+            android:spinnerMode="dialog"
+            android:prompt="@string/select_Protein">
+
+        </Spinner>
+
+        <Spinner
+            android:id="@+id/Type"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:spinnerMode="dialog"
+            android:prompt="@string/select_top">
+
+        </Spinner>
+
+        <EditText
+            android:id="@+id/Miscelenous"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:hint="@string/extra"
+            android:inputType="textMultiLine"
+            android:lines="4"
+            android:layout_marginTop="10dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="17sp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/Insert_Price"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/ricePrice"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="40dp"
+                android:hint="@string/rice"
+                android:inputType="number" />
+
+
+            <EditText
+                android:id="@+id/proteinPrice"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/pro"
+                android:layout_toRightOf="@+id/ricePrice"
+                android:layout_centerInParent="true"
+                android:inputType="number"
+                android:layout_marginStart="20dp" />
+
+            <EditText
+                android:id="@+id/ToppingPrice"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/proteinPrice"
+                android:layout_marginStart="20dp"
+                android:hint="@string/toppings"
+                android:inputType="number" />
+
+        </RelativeLayout>
+
+
+
+        <CheckBox
+            android:id="@+id/Check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="80dp"
+            android:text="@string/checkbox"/>
+
+        <Button
+            android:id="@+id/myButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/order"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/tan_background" />
+
+
+    </LinearLayout>
+</ScrollView>
+

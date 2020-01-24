@@ -14,36 +14,30 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    public static final String EXTRA_TEXT = "com.example.arcafood";
-
-
-    private EditText Editemail,Editpassword;
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
+    EditText Editemail, Editpassword;
     private FirebaseAuth mAuth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Editemail = findViewById(R.id.email);
-        Editpassword = findViewById(R.id.password);
+        setContentView(R.layout.activity_sign_up);
 
 
         mAuth = FirebaseAuth.getInstance();
-        findViewById(R.id.login).setOnClickListener(this);
-        findViewById(R.id.textSignUp).setOnClickListener(this);
+
+        Editemail = (EditText) findViewById(R.id.newemail);
+        Editpassword = (EditText) findViewById(R.id.newpassword);
+
+        findViewById(R.id.SignUp).setOnClickListener(this);
+        findViewById(R.id.buttonlogin).setOnClickListener(this);
 
     }
 
-    private void registerUser() {
+    private void userLogin() {
         String email = Editemail.getText().toString().trim();
         String password = Editpassword.getText().toString().trim();
-
-
 
         if (email.isEmpty()) {
             Editemail.setError("Email is required");
@@ -69,44 +63,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
 
                 if (task.isSuccessful()) {
                     finish();
-                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
-
                 } else {
-
-                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
-                        finish();
-                        Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-
-                    } else {
-                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-
+                    Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (mAuth.getCurrentUser() != null) {
+            finish();
+            startActivity(new Intent(this, ProfileActivity.class));
+        }
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.login:
-                registerUser();
+            case R.id.SignUp:
+                finish();
+                startActivity(new Intent(this, MainActivity.class));
                 break;
 
-            case R.id.textSignUp:
-                finish();
-                startActivity(new Intent(this,SignUpActivity.class));
+            case R.id.buttonlogin:
+                userLogin();
                 break;
         }
     }

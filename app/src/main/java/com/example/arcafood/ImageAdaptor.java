@@ -4,75 +4,49 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.GridLayout;
-import android.widget.GridView;
-import android.widget.ImageButton;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ImageAdaptor extends BaseAdapter {
-private Context mContext;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import java.util.ArrayList;
+
+public class ImageAdaptor extends ArrayAdapter<Image> {
 
 
-
-    public ImageAdaptor( Context c) {
-        mContext= c;
-
-    }
-    @Override
-    public int getCount()
-    {
-        return mImages.length;
-
+    public ImageAdaptor(Context c, ArrayList<Image> pictures) {
+        super(c, 0, pictures);
     }
 
+    @NonNull
     @Override
-    public Object getItem(int i)
-    {
-        return mImages[i];
-    }
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-    @Override
-    public long getItemId(int position)
-    {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
-
-
-       if(convertView==null){
-       convertView =LayoutInflater.from(parent.getContext()).inflate(
-                   R.layout.layout_images, parent,false);
-
+        View listView = convertView;
+        if (listView == null) {
+            listView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.layout_images, parent, false);
         }
-        ImageView myView = convertView.findViewById(R.id.rice);
-        TextView theText = convertView.findViewById(R.id.ourText);
-        myView.setImageResource((int)getItem(position));
-        theText.setText(names[position]);
+        Image theMain = getItem(position);
 
-        return convertView;
+
+        TextView myText = listView.findViewById(R.id.ourText);
+        myText.setText(theMain.getText());
+
+        ImageView myImage = listView.findViewById(R.id.image);
+        myImage.setImageResource(theMain.getImage());
+
+        return listView;
     }
-    int[] mImages = {
-            R.drawable.rice,
-            R.drawable.swallow,
-            R.drawable.citrus,
-            R.drawable.drinks,
-            R.drawable.protein_sources,
-            R.drawable.snacks
-    };
-    String[] names={
-            "Rice",
-            "Swallow",
-            "Fruits",
-            "Drinks",
-            "Proteins",
-            "Snacks",
-    };
 
 }
+
+
+
+
+
+
 
 

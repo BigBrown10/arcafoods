@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="welcome">#E67E22</color>
-
+    <color name="tan_background">#FFF7DA</color>
+    <color name ="blue">#2980B9</color>
 </resources>

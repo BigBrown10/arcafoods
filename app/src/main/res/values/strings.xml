@@ -3,9 +3,38 @@
     <string name="sign_in">SIGN IN</string>
     <string name="welcome">Welcome to Arca food</string>
     <string name="thank_you">Thank you</string>
+    <string name="checkbox">Agree with terms and conditions</string>
     <string name="change">Change Login Info(Optional)</string>
-    <string name="well">Tunde can get anything for you, what do you want?</string>
+    <string name="select">Select Meal</string>
+    <string name="confirm">Confirm Meal</string>
     <string name="go_to_order">Go to Order</string>
-    <string name="hi">Hi,</string>
+    <string name="rice">Rice</string>
+    <string name="order">Order</string>
+    <string name="white_rice"> White Rice</string>
+    <string name="joll_rice">Jollof Rice</string>
+    <string name="fried_rice">Fried Rice</string>
+    <string name="fufu">Fufu</string>
+    <string name="amala">Amala </string>
+    <string name="eba">Eba</string>
+    <string name="beans">Beans</string>
+    <string name="pound">Pounded Yam</string>
+    <string name="select_Protein">Select Protein</string>
+    <string name="select_top">Select Toppings</string>
+    <string name="select_meal">Select Meal</string>
+    <string name="soup">Soup</string>
+    <string name="fruit">Fruits</string>
+    <string name="pro">Proteins</string>
+    <string name="email_not">Email Not Verified (Click to Verify)</string>
+    <string name="email_verify">"Email Verified</string>
+    <string name="snacks">Snacks</string>
+    <string name="choose">Tap on camera to choose profile picture</string>
+    <string name="extra">Miscelenous\n
+        eg: Fruits, Drinks, snacks, candy etc.</string>
+    <string name="Insert_Price">Insert Price</string>
+    <string name="toppings">Toppings</string>
+    <string name="Subscribed">Subscribed</string>
+    <string name="failed">Failed</string>
+    <string name="default_notification_channel_id">Notification Channel</string>
+    <string name="fcm_message">Message</string>
 </resources>
 
